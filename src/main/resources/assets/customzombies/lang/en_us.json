@@ -1,0 +1,16 @@
+{
+  "itemGroup.customzombies": "Example Mod Tab",
+  "block.customzombies.example_block": "Example Block",
+  "item.customzombies.example_item": "Example Item",
+
+  "entity.customzombies.homelander_zombie": "Homelander Zombie",
+  "item.customzombies.homelander_zombie_spawn_egg": "Homelander Zombie Spawn Egg",
+
+  "customzombies.configuration.title": "Custom zombies Configs",
+  "customzombies.configuration.section.customzombies.common.toml": "Custom zombies Configs",
+  "customzombies.configuration.section.customzombies.common.toml.title": "Custom zombies Configs",
+  "customzombies.configuration.items": "Item List",
+  "customzombies.configuration.logDirtBlock": "Log Dirt Block",
+  "customzombies.configuration.magicNumberIntroduction": "Magic Number Text",
+  "customzombies.configuration.magicNumber": "Magic Number"
+}

@@ -1,0 +1,11 @@
+{
+  "homelander_zombie_hurt": {
+    "subtitle": "subtitles.customzombies.homelander_zombie_hurt",
+    "sounds": [
+      {
+        "name": "customzombies:homelander_zombie_hurt",
+        "stream": false
+      }
+    ]
+  }
+}
