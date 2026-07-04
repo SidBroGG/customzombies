@@ -1,5 +1,6 @@
 package com.example.customzombies.event;
 
+import com.example.customzombies.client.model.CustomZombieModel;
 import com.example.customzombies.renderer.CustomZombieRenderer;
 import com.example.customzombies.zombie.ModZombies;
 import net.neoforged.api.distmarker.Dist;
@@ -9,6 +10,14 @@ import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 
 @EventBusSubscriber(modid = "customzombies", value = Dist.CLIENT)
 public class ClientModEvents {
+    @SubscribeEvent
+    public static void registerLayerDefinitions(EntityRenderersEvent.RegisterLayerDefinitions event) {
+        event.registerLayerDefinition(
+                CustomZombieModel.LAYER_LOCATION,
+                CustomZombieModel::createBodyLayer
+        );
+    }
+
     @SubscribeEvent
     public static void registerRenderers(EntityRenderersEvent.RegisterRenderers event) {
         ModZombies.all().forEach(entry -> event.registerEntityRenderer(entry.entityType().get(), CustomZombieRenderer::new));
