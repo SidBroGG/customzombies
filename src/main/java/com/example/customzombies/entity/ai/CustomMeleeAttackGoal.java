@@ -12,7 +12,7 @@ import java.util.EnumSet;
 public final class CustomMeleeAttackGoal extends Goal {
     private static final long CAN_USE_CHECK_COOLDOWN = 20L;
 
-    protected final PathfinderMob mob;
+    private final PathfinderMob mob;
     private final double speedModifier;
     private final int attackCooldown;
     private final boolean followingTargetEvenIfNotSeen;
@@ -25,15 +25,19 @@ public final class CustomMeleeAttackGoal extends Goal {
     private int ticksUntilNextAttack;
     private long lastCanUseCheck;
 
+    private final double attackReach;
+
     public CustomMeleeAttackGoal(
             PathfinderMob mob,
             double speedModifier,
             int attackCooldown,
+            double attackReach,
             boolean followingTargetEvenIfNotSeen
     ) {
         this.mob = mob;
         this.speedModifier = speedModifier;
         this.attackCooldown = Math.max(1, attackCooldown);
+        this.attackReach = attackReach;
         this.followingTargetEvenIfNotSeen = followingTargetEvenIfNotSeen;
 
         this.setFlags(EnumSet.of(Flag.MOVE, Flag.LOOK));
@@ -156,4 +160,6 @@ public final class CustomMeleeAttackGoal extends Goal {
                 && this.mob.isWithinMeleeAttackRange(target)
                 && this.mob.getSensing().hasLineOfSight(target);
     }
+
+
 }

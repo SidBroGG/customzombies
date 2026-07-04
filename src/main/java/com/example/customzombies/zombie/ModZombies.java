@@ -32,6 +32,7 @@ public final class ModZombies {
                     .with(Attributes.SCALE, 1.3D)
                     .with(Attributes.ATTACK_DAMAGE, 0.25D),
             10,
+            2.0D,
             2,
             List.of(
                     LootDrop.ammo("tacz:9mm", 5, 7, 10),

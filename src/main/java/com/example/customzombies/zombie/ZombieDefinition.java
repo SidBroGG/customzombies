@@ -8,6 +8,7 @@ public record ZombieDefinition(
         String id,
         ZombieStats stats,
         int attackCooldownTicks,
+        double attackReach,
         int lootRolls,
         List<LootDrop> loot,
         ResourceLocation texture,

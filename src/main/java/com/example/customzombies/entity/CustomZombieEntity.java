@@ -38,6 +38,6 @@ public final class CustomZombieEntity extends Zombie {
         super.registerGoals();
         this.goalSelector.removeAllGoals(goal -> goal instanceof ZombieAttackGoal);
 
-        this.goalSelector.addGoal(2, new CustomMeleeAttackGoal(this, 1.0D, this.getDefinition().attackCooldownTicks(), false));
+        this.goalSelector.addGoal(2, new CustomMeleeAttackGoal(this, 1.0D, this.getDefinition().attackCooldownTicks(), this.getDefinition().attackReach(), false));
     }
 }
