@@ -1,4 +1,4 @@
-package com.example.customzombies.entity;
+package com.example.customzombies.entity.ai;
 
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.EntitySelector;
@@ -9,7 +9,7 @@ import net.minecraft.world.level.pathfinder.Path;
 
 import java.util.EnumSet;
 
-public class HomelanderMealAttackGoal extends Goal {
+public final class CustomMeleeAttackGoal extends Goal {
     private static final long CAN_USE_CHECK_COOLDOWN = 20L;
 
     protected final PathfinderMob mob;
@@ -25,7 +25,7 @@ public class HomelanderMealAttackGoal extends Goal {
     private int ticksUntilNextAttack;
     private long lastCanUseCheck;
 
-    public HomelanderMealAttackGoal(
+    public CustomMeleeAttackGoal(
             PathfinderMob mob,
             double speedModifier,
             int attackCooldown,
