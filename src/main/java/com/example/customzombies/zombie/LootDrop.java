@@ -1,17 +1,22 @@
 package com.example.customzombies.zombie;
 
-import net.minecraft.world.item.ItemStack;
+import net.minecraft.nbt.CompoundTag;
+import net.minecraft.resources.ResourceLocation;
 
 import java.util.Objects;
 
 public record LootDrop(
-        ItemStack item,
+        ResourceLocation itemId,
+        CompoundTag customData,
         int minCount,
         int maxCount,
-        float chance
+        int weight
 ) {
     public LootDrop {
-        Objects.requireNonNull(item, "item");
+        Objects.requireNonNull(itemId, "itemId");
+
+        Objects.requireNonNull(customData, "customData");
+        customData = customData.copy();
 
         if (minCount < 1) {
             throw new IllegalArgumentException("minCount must be at least 1");
@@ -21,8 +26,21 @@ public record LootDrop(
             throw new IllegalArgumentException("maxCount must be greater than or equal to minCount");
         }
 
-        if (chance <= 0.0F || chance >= 1.0F) {
-            throw new IllegalArgumentException("chance must be between 0.0F and 1.0F");
+        if (weight < 1) {
+            throw new IllegalArgumentException("weight must be at least 1");
         }
+    }
+
+    public static LootDrop ammo(String ammoId, int minCount, int maxCount, int weight) {
+        CompoundTag data = new CompoundTag();
+        data.putString("AmmoId", ammoId);
+
+        return new LootDrop(
+                ResourceLocation.fromNamespaceAndPath("tacz", "ammo"),
+                data,
+                minCount,
+                maxCount,
+                weight
+        );
     }
 }

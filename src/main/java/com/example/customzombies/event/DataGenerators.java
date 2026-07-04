@@ -12,7 +12,6 @@ public class DataGenerators {
         var generator = event.getGenerator();
         var packOutput = generator.getPackOutput();
         var lookupProvider = event.getLookupProvider();
-        var existingFileHelper = event.getExistingFileHelper();
 
         generator.addProvider(event.includeServer(), new ModLootTableProvider(packOutput, lookupProvider));
     }

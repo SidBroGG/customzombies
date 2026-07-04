@@ -27,11 +27,19 @@ public final class ModZombies {
             "homelander_zombie",
             new ZombieStats(),
             10,
+            2,
+            List.of(
+                    LootDrop.ammo("tacz:9mm", 5, 7, 10),
+                    LootDrop.ammo("tacz:45acp", 4, 6, 10),
+                    LootDrop.ammo("tacz:556x45", 5, 7, 10),
+                    LootDrop.ammo("tacz:308", 5, 7, 10),
+                    LootDrop.ammo("tacz:12g", 1, 3, 10),
+                    LootDrop.ammo("tacz:rpg_rocket", 1, 1, 1)
+            ),
             ResourceLocation.fromNamespaceAndPath(
                     Customzombies.MODID,
                     "textures/entity/homelander_zombie.png"
             ),
-            List.of(),
             0x0D08A3,
             0xD43B3B
     );

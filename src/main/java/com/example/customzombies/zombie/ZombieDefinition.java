@@ -8,9 +8,13 @@ public record ZombieDefinition(
         String id,
         ZombieStats stats,
         int attackCooldownTicks,
-        ResourceLocation texture,
+        int lootRolls,
         List<LootDrop> loot,
+        ResourceLocation texture,
         int eggPrimaryColor,
         int eggSecondaryColor
 ) {
+    public ZombieDefinition {
+        loot = List.copyOf(loot);
+    }
 }
