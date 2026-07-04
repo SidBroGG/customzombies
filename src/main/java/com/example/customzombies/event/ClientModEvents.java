@@ -1,6 +1,7 @@
 package com.example.customzombies.event;
 
 import com.example.customzombies.renderer.CustomZombieRenderer;
+import com.example.customzombies.zombie.ModZombies;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;

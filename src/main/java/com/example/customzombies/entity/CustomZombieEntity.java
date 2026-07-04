@@ -1,6 +1,7 @@
 package com.example.customzombies.entity;
 
 import com.example.customzombies.entity.ai.CustomMeleeAttackGoal;
+import com.example.customzombies.zombie.ModZombies;
 import com.example.customzombies.zombie.ZombieDefinition;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.ai.goal.ZombieAttackGoal;

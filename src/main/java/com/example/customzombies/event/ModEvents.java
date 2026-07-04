@@ -1,6 +1,7 @@
 package com.example.customzombies.event;
 
 import com.example.customzombies.Customzombies;
+import com.example.customzombies.zombie.ModZombies;
 import net.minecraft.world.entity.monster.Zombie;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.neoforged.bus.api.SubscribeEvent;

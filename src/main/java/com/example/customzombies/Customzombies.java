@@ -1,7 +1,6 @@
 package com.example.customzombies;
 
-import com.example.customzombies.init.ModEntities;
-import com.example.customzombies.init.ModSounds;
+import com.example.customzombies.zombie.ModZombies;
 import com.mojang.logging.LogUtils;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.level.block.Blocks;
@@ -27,9 +26,8 @@ public class Customzombies {
         // Register our mod's ModConfigSpec so that FML can create and load the config file for us
         modContainer.registerConfig(ModConfig.Type.COMMON, Config.SPEC);
 
-        ModEntities.ENTITIES.register(modEventBus);
-        ModEntities.ITEMS.register(modEventBus);
-        ModSounds.SOUND_EVENTS.register(modEventBus);
+        ModZombies.ENTITIES.register(modEventBus);
+        ModZombies.ITEMS.register(modEventBus);
     }
 
     private void commonSetup(FMLCommonSetupEvent event) {
