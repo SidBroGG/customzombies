@@ -1,6 +1,5 @@
 package com.example.customzombies.loot;
 
-import com.example.customzombies.init.ModEntities;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.registries.BuiltInRegistries;

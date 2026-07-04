@@ -1,6 +1,5 @@
 package com.example.customzombies.event;
 
-import com.example.customzombies.data.ModItemModelProvider;
 import com.example.customzombies.data.ModLootTableProvider;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
@@ -15,7 +14,6 @@ public class DataGenerators {
         var lookupProvider = event.getLookupProvider();
         var existingFileHelper = event.getExistingFileHelper();
 
-        generator.addProvider(event.includeClient(), new ModItemModelProvider(packOutput, existingFileHelper));
         generator.addProvider(event.includeServer(), new ModLootTableProvider(packOutput, lookupProvider));
     }
 }
