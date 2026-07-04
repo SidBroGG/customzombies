@@ -4,6 +4,7 @@ import com.example.customzombies.entity.ai.CustomMeleeAttackGoal;
 import com.example.customzombies.zombie.ModZombies;
 import com.example.customzombies.zombie.ZombieDefinition;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.goal.ZombieAttackGoal;
 import net.minecraft.world.entity.monster.Zombie;
 import net.minecraft.world.level.Level;
@@ -13,7 +14,13 @@ public final class CustomZombieEntity extends Zombie {
         super(entityType, level);
     }
 
-    public final ZombieDefinition getDefinition() {
+    public static AttributeSupplier.Builder createAttributes(ZombieDefinition definition) {
+        var builder = Zombie.createAttributes();
+        definition.stats().applyTo(builder);
+        return builder;
+    }
+
+    public ZombieDefinition getDefinition() {
         return ModZombies.getByEntityType(this.getType()).definition();
     }
 

@@ -6,6 +6,7 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
+import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.item.Item;
 import net.neoforged.neoforge.common.DeferredSpawnEggItem;
 import net.neoforged.neoforge.registries.DeferredHolder;
@@ -25,7 +26,11 @@ public final class ModZombies {
 
     private static final ZombieDefinition HOMELANDER_DEFINITION = new ZombieDefinition(
             "homelander_zombie",
-            new ZombieStats(),
+            new ZombieStats()
+                    .with(Attributes.MAX_HEALTH, 50.0D)
+                    .with(Attributes.MOVEMENT_SPEED, 0.3D)
+                    .with(Attributes.SCALE, 1.3D)
+                    .with(Attributes.ATTACK_DAMAGE, 0.25D),
             10,
             2,
             List.of(
