@@ -18,7 +18,7 @@ public final class ModEvents {
         ModZombies.all().forEach(entry -> {
             var builder = Zombie.createAttributes();
 
-            entry.defenition().stats().applyTo(builder);
+            entry.definition().stats().applyTo(builder);
 
             event.put(entry.entityType().get(), builder.build());
         });
