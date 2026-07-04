@@ -28,18 +28,18 @@ public final class ModZombies {
             "homelander_zombie",
             new ZombieStats()
                     .with(Attributes.MAX_HEALTH, 50.0D)
-                    .with(Attributes.MOVEMENT_SPEED, 0.3D)
-                    .with(Attributes.SCALE, 1.3D)
-                    .with(Attributes.ATTACK_DAMAGE, 0.25D),
-            10,
-            2.0D,
+                    .with(Attributes.MOVEMENT_SPEED, 0.33D)
+                    .with(Attributes.SCALE, 1.2D)
+                    .with(Attributes.ATTACK_DAMAGE, 1D),
+            5,
+            1.5D,
             2,
             List.of(
-                    LootDrop.ammo("tacz:9mm", 5, 7, 10),
-                    LootDrop.ammo("tacz:45acp", 4, 6, 10),
-                    LootDrop.ammo("tacz:556x45", 5, 7, 10),
-                    LootDrop.ammo("tacz:308", 5, 7, 10),
-                    LootDrop.ammo("tacz:12g", 1, 3, 10),
+                    LootDrop.ammo("tacz:9mm", 2, 4, 100),
+                    LootDrop.ammo("tacz:45acp", 2, 3, 100),
+                    LootDrop.ammo("tacz:556x45", 2, 4, 100),
+                    LootDrop.ammo("tacz:308", 2, 4, 100),
+                    LootDrop.ammo("tacz:12g", 1, 2, 10),
                     LootDrop.ammo("tacz:rpg_rocket", 1, 1, 1)
             ),
             ResourceLocation.fromNamespaceAndPath(

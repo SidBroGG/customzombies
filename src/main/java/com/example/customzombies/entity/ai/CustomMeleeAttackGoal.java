@@ -37,7 +37,7 @@ public final class CustomMeleeAttackGoal extends Goal {
         this.mob = mob;
         this.speedModifier = speedModifier;
         this.attackCooldown = Math.max(1, attackCooldown);
-        this.attackReach = attackReach;
+        this.attackReach = Math.max(0.0D, attackReach);
         this.followingTargetEvenIfNotSeen = followingTargetEvenIfNotSeen;
 
         this.setFlags(EnumSet.of(Flag.MOVE, Flag.LOOK));
@@ -59,7 +59,7 @@ public final class CustomMeleeAttackGoal extends Goal {
         }
 
         this.path = this.mob.getNavigation().createPath(target, 0);
-        return this.path != null || this.mob.isWithinMeleeAttackRange(target);
+        return this.path != null || this.isWithinCustomAttackRange(target);
     }
 
     @Override
@@ -157,9 +157,18 @@ public final class CustomMeleeAttackGoal extends Goal {
 
     private boolean canPerformAttack(LivingEntity target) {
         return this.ticksUntilNextAttack <= 0
-                && this.mob.isWithinMeleeAttackRange(target)
+                && this.isWithinCustomAttackRange(target)
                 && this.mob.getSensing().hasLineOfSight(target);
     }
 
+    private boolean isWithinCustomAttackRange(LivingEntity target) {
+        double dx = this.mob.getX() - target.getX();
+        double dz = this.mob.getZ() - target.getZ();
+
+        double hitboxRadius = (this.mob.getBbWidth() + target.getBbWidth()) * 0.5D;
+        double maxDistance = this.attackReach + hitboxRadius;
+
+        return dx * dx + dz * dz <= maxDistance * maxDistance;
+    }
 
 }
