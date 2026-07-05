@@ -26,7 +26,7 @@ public final class AlexZombie {
                     .with(Attributes.ATTACK_DAMAGE, 2D),
             true,
             20,
-            0.8D,
+            1D,
             1,
             List.of(
                     new LootDrop(
