@@ -26,7 +26,7 @@ public final class MaxZombie {
                     .with(Attributes.SCALE, 3.0D),
             false,
             20,
-            3D,
+            1.5D,
             10,
             List.of(
                     LootDrop.flesh(1, 5, 15),

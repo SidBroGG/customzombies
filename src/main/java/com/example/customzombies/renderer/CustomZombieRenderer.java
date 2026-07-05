@@ -1,6 +1,7 @@
 package com.example.customzombies.renderer;
 
 import com.example.customzombies.entity.CustomZombieEntity;
+import com.example.customzombies.renderer.layer.ZombieSkinOverlayLayer;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.ZombieRenderer;
 import net.minecraft.resources.ResourceLocation;
@@ -10,6 +11,7 @@ import org.jetbrains.annotations.NotNull;
 public class CustomZombieRenderer extends ZombieRenderer {
     public CustomZombieRenderer(EntityRendererProvider.Context context) {
         super(context);
+        this.addLayer(new ZombieSkinOverlayLayer(this, context));
     }
 
     @Override
