@@ -1,27 +1,23 @@
 package com.example.customzombies.renderer;
 
-import com.example.customzombies.client.model.CustomZombieModel;
 import com.example.customzombies.entity.CustomZombieEntity;
-import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
-import net.minecraft.client.renderer.entity.MobRenderer;
+import net.minecraft.client.renderer.entity.ZombieRenderer;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.entity.monster.Zombie;
 import org.jetbrains.annotations.NotNull;
 
-public class CustomZombieRenderer extends MobRenderer<CustomZombieEntity, CustomZombieModel> {
+public class CustomZombieRenderer extends ZombieRenderer {
     public CustomZombieRenderer(EntityRendererProvider.Context context) {
-        super(context, new CustomZombieModel(context.bakeLayer(CustomZombieModel.LAYER_LOCATION)), 0.5F);
+        super(context);
     }
 
     @Override
-    public @NotNull ResourceLocation getTextureLocation(CustomZombieEntity entity) {
-        return entity.getDefinition().texture();
-    }
-
-    @Override
-    protected void scale(CustomZombieEntity entity, @NotNull PoseStack poseStack, float partialTick) {
-        if (entity.isBaby()) {
-            poseStack.scale(0.5F, 0.5F, 0.5F);
+    public @NotNull ResourceLocation getTextureLocation(@NotNull Zombie zombie) {
+        if (zombie instanceof CustomZombieEntity customZombie) {
+            return customZombie.getDefinition().texture();
         }
+
+        return super.getTextureLocation(zombie);
     }
 }
