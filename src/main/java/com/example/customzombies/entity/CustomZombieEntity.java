@@ -26,12 +26,12 @@ public final class CustomZombieEntity extends Zombie {
 
     @Override
     public void setBaby(boolean baby) {
-        super.setBaby(false);
+        super.setBaby(this.getDefinition().isBaby());
     }
 
     @Override
     public boolean isBaby() {
-        return false;
+        return this.getDefinition().isBaby();
     }
 
     protected void registerGoals() {

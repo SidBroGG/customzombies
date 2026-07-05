@@ -3,6 +3,7 @@ package com.example.customzombies.zombie.definitions;
 import com.example.customzombies.Customzombies;
 import com.example.customzombies.entity.CustomZombieEntity;
 import com.example.customzombies.zombie.*;
+import net.minecraft.nbt.CompoundTag;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
@@ -13,35 +14,30 @@ import net.neoforged.neoforge.registries.DeferredHolder;
 
 import java.util.List;
 
-public final class HomelanderZombie {
-    private HomelanderZombie() {
+public final class AlexZombie {
+    private AlexZombie() {
     }
 
     private static final ZombieDefinition DEFINITION = new ZombieDefinition(
-            "homelander_zombie",
+            "alex_zombie",
             new ZombieStats()
-                    .with(Attributes.MAX_HEALTH, 50.0D)
-                    .with(Attributes.MOVEMENT_SPEED, 0.33D)
-                    .with(Attributes.SCALE, 1.2D)
-                    .with(Attributes.ATTACK_DAMAGE, 1D),
-            false,
-            5,
-            1.5D,
-            2,
+                    .with(Attributes.MAX_HEALTH, 30.0D)
+                    .with(Attributes.MOVEMENT_SPEED, 0.4D)
+                    .with(Attributes.ATTACK_DAMAGE, 2D),
+            true,
+            20,
+            0.8D,
+            1,
             List.of(
-                    LootDrop.ammo("tacz:9mm", 2, 4, 100),
-                    LootDrop.ammo("tacz:45acp", 2, 3, 100),
-                    LootDrop.ammo("tacz:556x45", 2, 4, 100),
-                    LootDrop.ammo("tacz:308", 2, 4, 100),
-                    LootDrop.ammo("tacz:12g", 1, 2, 10),
-                    LootDrop.ammo("tacz:rpg_rocket", 1, 1, 1)
+                    new LootDrop(
+                            ResourceLocation.fromNamespaceAndPath(
+                                    "minecraft", "rotten_flesh"
+                            ), new CompoundTag(), 2, 6, 100
+                    )
             ),
-            ResourceLocation.fromNamespaceAndPath(
-                    Customzombies.MODID,
-                    "textures/entity/homelander_zombie.png"
-            ),
-            0x0D08A3,
-            0xD43B3B
+            ResourceLocation.fromNamespaceAndPath(Customzombies.MODID, "textures/entity/alex_zombie.png"),
+            0xffee00,
+            0x027a00
     );
 
     public static final DeferredHolder<EntityType<?>, EntityType<CustomZombieEntity>> ENTITY =

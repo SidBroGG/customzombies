@@ -1,6 +1,7 @@
 package com.example.customzombies.zombie;
 
 import com.example.customzombies.Customzombies;
+import com.example.customzombies.zombie.definitions.AlexZombie;
 import com.example.customzombies.zombie.definitions.HomelanderZombie;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.entity.EntityType;
@@ -21,7 +22,8 @@ public final class ModZombies {
 
     // All zombie classes here
     private static final List<ZombieEntry> ALL = List.of(
-            HomelanderZombie.ENTRY
+            HomelanderZombie.ENTRY,
+            AlexZombie.ENTRY
     );
 
     public static List<ZombieEntry> all() {
