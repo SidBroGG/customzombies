@@ -13,26 +13,33 @@ import net.neoforged.neoforge.registries.DeferredHolder;
 
 import java.util.List;
 
-public final class AlexZombie {
-    private AlexZombie() {
+public final class MaxZombie {
+    private MaxZombie() {
     }
 
     private static final ZombieDefinition DEFINITION = new ZombieDefinition(
-            "alex_zombie",
+            "max_zombie",
             new ZombieStats()
-                    .with(Attributes.MAX_HEALTH, 30.0D)
-                    .with(Attributes.MOVEMENT_SPEED, 0.4D)
-                    .with(Attributes.ATTACK_DAMAGE, 2D),
-            true,
+                    .with(Attributes.MAX_HEALTH, 500.0D)
+                    .with(Attributes.ATTACK_DAMAGE, 4.0D)
+                    .with(Attributes.MOVEMENT_SPEED, 0.3D)
+                    .with(Attributes.SCALE, 3.0D),
+            false,
             20,
-            1D,
-            1,
+            3D,
+            10,
             List.of(
-                    LootDrop.flesh(5, 15, 100)
+                    LootDrop.flesh(1, 5, 15),
+                    LootDrop.ammo("tacz:9mm", 2, 4, 10),
+                    LootDrop.ammo("tacz:45acp", 2, 3, 10),
+                    LootDrop.ammo("tacz:556x45", 2, 4, 10),
+                    LootDrop.ammo("tacz:308", 2, 4, 10),
+                    LootDrop.ammo("tacz:12g", 1, 2, 10),
+                    LootDrop.ammo("tacz:rpg_rocket", 1, 1, 10)
             ),
-            ResourceLocation.fromNamespaceAndPath(Customzombies.MODID, "textures/entity/alex_zombie.png"),
-            0xffee00,
-            0x027a00
+            ResourceLocation.fromNamespaceAndPath(Customzombies.MODID, "textures/entity/max_zombie.png"),
+            0xff00f7,
+            0xbaa880
     );
 
     public static final DeferredHolder<EntityType<?>, EntityType<CustomZombieEntity>> ENTITY =

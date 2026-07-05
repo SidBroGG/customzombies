@@ -43,4 +43,14 @@ public record LootDrop(
                 weight
         );
     }
+
+    public static LootDrop flesh(int minCount, int maxCount, int weight) {
+        return new LootDrop(
+                ResourceLocation.fromNamespaceAndPath("minecraft", "rotten_flesh"),
+                new CompoundTag(),
+                minCount,
+                maxCount,
+                weight
+        );
+    }
 }
