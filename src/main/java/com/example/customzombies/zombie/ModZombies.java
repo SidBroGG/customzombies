@@ -4,6 +4,7 @@ import com.example.customzombies.Customzombies;
 import com.example.customzombies.zombie.definitions.AlexZombie;
 import com.example.customzombies.zombie.definitions.HomelanderZombie;
 import com.example.customzombies.zombie.definitions.MaxZombie;
+import com.example.customzombies.zombie.definitions.RealZombie;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.item.Item;
@@ -23,6 +24,7 @@ public final class ModZombies {
 
     // All zombie classes here
     private static final List<ZombieEntry> ALL = List.of(
+            RealZombie.ENTRY,
             HomelanderZombie.ENTRY,
             AlexZombie.ENTRY,
             MaxZombie.ENTRY
