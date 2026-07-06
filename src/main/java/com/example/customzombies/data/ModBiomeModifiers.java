@@ -1,6 +1,7 @@
 package com.example.customzombies.data;
 
 import com.example.customzombies.Customzombies;
+import com.example.customzombies.world.OnlyCustomZombiesBiomeModifier;
 import com.example.customzombies.zombie.definitions.AlexZombie;
 import com.example.customzombies.zombie.definitions.HomelanderZombie;
 import com.example.customzombies.zombie.definitions.MaxZombie;
@@ -55,6 +56,11 @@ public final class ModBiomeModifiers {
         context.register(
                 key("overworld_custom_zombies"),
                 new BiomeModifiers.AddSpawnsBiomeModifier(overworldBiomes, spawners)
+        );
+
+        context.register(
+                key("overworld_custom_overworld_spawns"),
+                new OnlyCustomZombiesBiomeModifier(overworldBiomes)
         );
     }
 

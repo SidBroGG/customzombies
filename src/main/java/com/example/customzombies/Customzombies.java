@@ -1,5 +1,6 @@
 package com.example.customzombies;
 
+import com.example.customzombies.world.ModBiomeModifierSerializers;
 import com.example.customzombies.zombie.ModZombies;
 import com.mojang.logging.LogUtils;
 import net.neoforged.bus.api.IEventBus;
@@ -18,6 +19,7 @@ public class Customzombies {
     public Customzombies(IEventBus modEventBus, ModContainer modContainer) {
         ModZombies.ENTITIES.register(modEventBus);
         ModZombies.ITEMS.register(modEventBus);
+        ModBiomeModifierSerializers.BIOME_MODIFIER_SERIALIZERS.register(modEventBus);
     }
 
 }
