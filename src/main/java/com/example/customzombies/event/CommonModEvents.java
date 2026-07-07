@@ -21,7 +21,7 @@ import net.neoforged.neoforge.event.entity.RegisterSpawnPlacementsEvent;
 
 @EventBusSubscriber(modid = Customzombies.MODID)
 public final class CommonModEvents {
-    private final static float DAY_SPAWN_CHANCE = 0.4F;
+    private final static float DAY_SPAWN_CHANCE = 0.2F;
 
     private CommonModEvents() {
     }

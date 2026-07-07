@@ -3,6 +3,7 @@ package com.example.customzombies.entity;
 import com.example.customzombies.entity.ai.CustomMeleeAttackGoal;
 import com.example.customzombies.zombie.ModZombies;
 import com.example.customzombies.zombie.ZombieDefinition;
+import net.minecraft.world.Difficulty;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.EquipmentSlot;
@@ -14,6 +15,7 @@ import net.minecraft.world.entity.ai.goal.ZombieAttackGoal;
 import net.minecraft.world.entity.monster.Zombie;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.ServerLevelAccessor;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -28,6 +30,11 @@ public final class CustomZombieEntity extends Zombie {
                 .add(Attributes.FOLLOW_RANGE, 48.0D);
         definition.stats().applyTo(builder);
         return builder;
+    }
+
+    @Override
+    public boolean checkSpawnRules(LevelAccessor level, @NotNull MobSpawnType spawnReason) {
+        return level.getDifficulty() != Difficulty.PEACEFUL;
     }
 
     public ZombieDefinition getDefinition() {
@@ -64,5 +71,10 @@ public final class CustomZombieEntity extends Zombie {
         }
 
         return data;
+    }
+
+    @Override
+    protected boolean isSunSensitive() {
+        return false;
     }
 }
