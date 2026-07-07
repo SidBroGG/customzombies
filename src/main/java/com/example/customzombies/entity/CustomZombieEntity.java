@@ -15,7 +15,6 @@ import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.MobSpawnType;
 import net.minecraft.world.entity.SpawnGroupData;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
-import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.goal.ZombieAttackGoal;
 import net.minecraft.world.entity.monster.Zombie;
 import net.minecraft.world.item.ItemStack;
@@ -36,8 +35,8 @@ public final class CustomZombieEntity extends Zombie {
     }
 
     public static AttributeSupplier.Builder createAttributes(ZombieDefinition definition) {
-        var builder = Zombie.createAttributes()
-                .add(Attributes.FOLLOW_RANGE, 48.0D);
+        var builder = Zombie.createAttributes();
+        //         .add(Attributes.FOLLOW_RANGE, 48.0D);
         definition.stats().applyTo(builder);
         return builder;
     }
