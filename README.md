@@ -1,25 +1,56 @@
+# CUSTOM ZOMBIES IN MINECRAFT 1.21.1 NEOFORGE
 
-Installation information
-=======
+**This mod requires TaCZ for a more immersive experience.**
 
-This template repository can be directly cloned to get you started with a new
-mod. Simply create a new repository cloned from this one, by following the
-instructions provided by [GitHub](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template).
+### This mod adds many new zombies:
 
-Once you have your clone, simply open the repository in the IDE of your choice. The usual recommendation for an IDE is either IntelliJ IDEA or Eclipse.
+* Real Zombie - a boosted version of the normal zombie. It has increased health and speed. This zombie can spawn **in 20 different variations**.
+* Alex Zombie - the most annoying kid in the game. It has movement speed similar to a player while running.
+* Homelander Zombie - a stronger and more dangerous zombie.
+* **MAX ZOMBIE** - the most powerful zombie in the game. Even Withers are afraid of him.
 
-If at any point you are missing libraries in your IDE, or you've run into problems you can
-run `gradlew --refresh-dependencies` to refresh the local cache. `gradlew clean` to reset everything 
-{this does not affect your code} and then start the process again.
+### This mod also changes natural spawning, allowing only custom zombies to spawn.
 
-Mapping Names:
-============
-By default, the MDK is configured to use the official mapping names from Mojang for methods and fields 
-in the Minecraft codebase. These names are covered by a specific license. All modders should be aware of this
-license. For the latest license text, refer to the mapping file itself, or the reference copy here:
-https://github.com/NeoForged/NeoForm/blob/main/Mojang.md
+###### The best mod for a zombie apocalypse.
 
-Additional Resources: 
-==========
-Community Documentation: https://docs.neoforged.net/  
-NeoForged Discord: https://discord.neoforged.net/
+# HOW TO BUILD
+
+## Requirements
+
+* JDK 21
+* IntelliJ IDEA
+* Gradle Wrapper included in the project
+* Minecraft / NeoForge 1.21.1
+
+Check your Java version:
+
+```bat
+java -version
+```
+
+It should show Java 21.
+
+## Generate Data
+
+If the project uses data generation, run:
+
+```bat
+.\gradlew.bat runData
+```
+
+## Build JAR
+
+Run this command from the project root:
+
+```bat
+.\gradlew.bat clean build
+```
+
+## Output
+
+The compiled mod JAR will be created in:
+
+```text
+build\libs\
+```
+
