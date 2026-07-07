@@ -2,6 +2,7 @@ package com.example.customzombies.renderer;
 
 import com.example.customzombies.entity.CustomZombieEntity;
 import com.example.customzombies.renderer.layer.ZombieSkinOverlayLayer;
+import com.example.customzombies.zombie.definitions.RealZombie;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.ZombieRenderer;
 import net.minecraft.resources.ResourceLocation;
@@ -17,6 +18,10 @@ public class CustomZombieRenderer extends ZombieRenderer {
     @Override
     public @NotNull ResourceLocation getTextureLocation(@NotNull Zombie zombie) {
         if (zombie instanceof CustomZombieEntity customZombie) {
+            if (customZombie.isRealZombie()) {
+                return RealZombie.getSkin(customZombie.getSkinVariant());
+            }
+
             return customZombie.getDefinition().texture();
         }
 

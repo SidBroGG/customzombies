@@ -3,6 +3,11 @@ package com.example.customzombies.entity;
 import com.example.customzombies.entity.ai.CustomMeleeAttackGoal;
 import com.example.customzombies.zombie.ModZombies;
 import com.example.customzombies.zombie.ZombieDefinition;
+import com.example.customzombies.zombie.definitions.RealZombie;
+import net.minecraft.nbt.CompoundTag;
+import net.minecraft.network.syncher.EntityDataAccessor;
+import net.minecraft.network.syncher.EntityDataSerializers;
+import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.world.Difficulty;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.entity.EntityType;
@@ -21,6 +26,11 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 public final class CustomZombieEntity extends Zombie {
+    private static final String SKIN_VARIANT_TAG = "RealZombieSkinVariant";
+
+    private static final EntityDataAccessor<Integer> DATA_SKIN_VARIANT =
+            SynchedEntityData.defineId(CustomZombieEntity.class, EntityDataSerializers.INT);
+
     public CustomZombieEntity(EntityType<? extends Zombie> entityType, Level level) {
         super(entityType, level);
     }
@@ -70,11 +80,48 @@ public final class CustomZombieEntity extends Zombie {
             this.setDropChance(slot, 0.0F);
         }
 
+        if (this.isRealZombie()) {
+            this.setSkinVariant(this.getRandom().nextInt(RealZombie.SKIN_COUNT));
+        }
+
         return data;
     }
 
     @Override
     protected boolean isSunSensitive() {
         return false;
+    }
+
+    @Override
+    protected void defineSynchedData(SynchedEntityData.@NotNull Builder builder) {
+        super.defineSynchedData(builder);
+        builder.define(DATA_SKIN_VARIANT, 0);
+    }
+
+    public int getSkinVariant() {
+        return this.entityData.get(DATA_SKIN_VARIANT);
+    }
+
+    private void setSkinVariant(int skinVariant) {
+        this.entityData.set(DATA_SKIN_VARIANT, Math.floorMod(skinVariant, RealZombie.SKIN_COUNT));
+    }
+
+    public boolean isRealZombie() {
+        return this.getType() == RealZombie.ENTITY.get();
+    }
+
+    @Override
+    public void readAdditionalSaveData(@NotNull CompoundTag tag) {
+        super.readAdditionalSaveData(tag);
+
+        if (tag.contains(SKIN_VARIANT_TAG)) {
+            this.setSkinVariant(tag.getInt(SKIN_VARIANT_TAG));
+        }
+    }
+
+    @Override
+    public void addAdditionalSaveData(@NotNull CompoundTag tag) {
+        super.addAdditionalSaveData(tag);
+        tag.putInt(SKIN_VARIANT_TAG, this.getSkinVariant());
     }
 }

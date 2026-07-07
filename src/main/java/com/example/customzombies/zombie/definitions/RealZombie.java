@@ -1,5 +1,6 @@
 package com.example.customzombies.zombie.definitions;
 
+import com.example.customzombies.Customzombies;
 import com.example.customzombies.entity.CustomZombieEntity;
 import com.example.customzombies.zombie.*;
 import net.minecraft.resources.ResourceLocation;
@@ -13,6 +14,18 @@ import net.neoforged.neoforge.registries.DeferredHolder;
 import java.util.List;
 
 public class RealZombie {
+    public static final int SKIN_COUNT = 20;
+
+    public static ResourceLocation getSkin(int variant) {
+        int index = Math.floorMod(variant, SKIN_COUNT);
+        String fileName = index == 0 ? "zombie" : "zombie" + index;
+
+        return ResourceLocation.fromNamespaceAndPath(
+                Customzombies.MODID,
+                "textures/entity/real_zombie/" + fileName + ".png"
+        );
+    }
+
     private RealZombie() {
     }
 
@@ -27,7 +40,7 @@ public class RealZombie {
             List.of(
                     LootDrop.flesh(1, 3, 1)
             ),
-            ResourceLocation.fromNamespaceAndPath("minecraft", "textures/entity/zombie/zombie.png"),
+            getSkin(0),
             0x542623,
             0xff1100
     );
