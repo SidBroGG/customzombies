@@ -38,6 +38,7 @@ public class ModEntityLoot extends EntityLootSubProvider {
 
         zombie.definition().loot().forEach(drop -> pool.add(createDrop(drop)));
 
+
         this.add(
                 zombie.entityType().get(),
                 LootTable.lootTable().withPool(pool)

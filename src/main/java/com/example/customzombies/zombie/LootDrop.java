@@ -10,7 +10,8 @@ public record LootDrop(
         CompoundTag customData,
         int minCount,
         int maxCount,
-        int weight
+        int weight,
+        boolean optional
 ) {
     public LootDrop {
         Objects.requireNonNull(itemId, "itemId");
@@ -40,7 +41,8 @@ public record LootDrop(
                 data,
                 minCount,
                 maxCount,
-                weight
+                weight,
+                true
         );
     }
 
@@ -50,7 +52,8 @@ public record LootDrop(
                 new CompoundTag(),
                 minCount,
                 maxCount,
-                weight
+                weight,
+                false
         );
     }
 }
