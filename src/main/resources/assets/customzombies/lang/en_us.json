@@ -1,7 +1,12 @@
 {
-  "itemGroup.customzombies": "Example Mod Tab",
-  "block.customzombies.example_block": "Example Block",
-  "item.customzombies.example_item": "Example Item",
+  "entity.customzombies.real_zombie": "Real Zombie",
+  "entity.customzombies.alex_zombie": "Alex Zombie",
   "entity.customzombies.homelander_zombie": "Homelander Zombie",
-  "item.customzombies.homelander_zombie_spawn_egg": "Homelander Zombie Spawn Egg"
+  "entity.customzombies.max_zombie": "Max Zombie",
+  "entity.customzombies.skuf_zombie": "Skuf Zombie",
+  "item.customzombies.real_zombie_spawn_egg": "Real Zombie Spawn Egg",
+  "item.customzombies.alex_zombie_spawn_egg": "Alex Zombie Spawn Egg",
+  "item.customzombies.homelander_zombie_spawn_egg": "Homelander Zombie Spawn Egg",
+  "item.customzombies.max_zombie_spawn_egg": "Max Zombie Spawn Egg",
+  "item.customzombies.skuf_zombie_spawn_egg": "Skuf Zombie Spawn Egg"
 }
