@@ -36,7 +36,6 @@ public final class CustomZombieEntity extends Zombie {
 
     public static AttributeSupplier.Builder createAttributes(ZombieDefinition definition) {
         var builder = Zombie.createAttributes();
-        //         .add(Attributes.FOLLOW_RANGE, 48.0D);
         definition.stats().applyTo(builder);
         return builder;
     }
@@ -51,13 +50,13 @@ public final class CustomZombieEntity extends Zombie {
     }
 
     @Override
-    public void setBaby(boolean baby) {
-        super.setBaby(this.getDefinition().isBaby());
+    public boolean isBaby() {
+        return this.getDefinition().isBaby();
     }
 
     @Override
-    public boolean isBaby() {
-        return this.getDefinition().isBaby();
+    public void setBaby(boolean baby) {
+        super.setBaby(this.getDefinition().isBaby());
     }
 
     @Override

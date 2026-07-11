@@ -58,10 +58,10 @@ public final class CommonModEvents {
     ) {
         return level.getDifficulty() != Difficulty.PEACEFUL
                 && Mob.checkMobSpawnRules(type, level, spawnType, pos, random)
-                && passesDayNightSpawnChance(type, level, random);
+                && passesDayNightSpawnChance(level, random);
     }
 
-    private static boolean passesDayNightSpawnChance(EntityType<CustomZombieEntity> type, ServerLevelAccessor level, RandomSource random) {
+    private static boolean passesDayNightSpawnChance(ServerLevelAccessor level, RandomSource random) {
         if (isDay(level)) {
             return random.nextFloat() < DAY_SPAWN_CHANCE;
         }
