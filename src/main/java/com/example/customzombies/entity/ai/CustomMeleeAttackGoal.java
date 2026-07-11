@@ -11,12 +11,13 @@ import java.util.EnumSet;
 
 public final class CustomMeleeAttackGoal extends Goal {
     private static final long CAN_USE_CHECK_COOLDOWN = 20L;
+    private static final double MAX_VERTICAL_ATTACK_DISTANCE = 1.0D;
 
     private final PathfinderMob mob;
     private final double speedModifier;
     private final int attackCooldown;
     private final boolean followingTargetEvenIfNotSeen;
-
+    private final double attackReach;
     private Path path;
     private double pathedTargetX;
     private double pathedTargetY;
@@ -24,8 +25,6 @@ public final class CustomMeleeAttackGoal extends Goal {
     private int ticksUntilNextPathRecalculation;
     private int ticksUntilNextAttack;
     private long lastCanUseCheck;
-
-    private final double attackReach;
 
     public CustomMeleeAttackGoal(
             PathfinderMob mob,
@@ -162,6 +161,15 @@ public final class CustomMeleeAttackGoal extends Goal {
     }
 
     private boolean isWithinCustomAttackRange(LivingEntity target) {
+        double verticalGap = Math.max(
+                this.mob.getBoundingBox().minY - target.getBoundingBox().maxY,
+                target.getBoundingBox().minY - this.mob.getBoundingBox().maxY
+        );
+
+        if (verticalGap > MAX_VERTICAL_ATTACK_DISTANCE) {
+            return false;
+        }
+
         double dx = this.mob.getX() - target.getX();
         double dz = this.mob.getZ() - target.getZ();
 

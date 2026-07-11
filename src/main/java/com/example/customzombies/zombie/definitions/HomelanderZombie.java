@@ -14,9 +14,6 @@ import net.neoforged.neoforge.registries.DeferredHolder;
 import java.util.List;
 
 public final class HomelanderZombie {
-    private HomelanderZombie() {
-    }
-
     private static final ZombieDefinition DEFINITION = new ZombieDefinition(
             "homelander_zombie",
             new ZombieStats()
@@ -27,7 +24,7 @@ public final class HomelanderZombie {
             false,
             5,
             1.5D,
-            2,
+            5,
             List.of(
                     LootDrop.ammo("tacz:9mm", 2, 4, 100),
                     LootDrop.ammo("tacz:45acp", 2, 3, 100),
@@ -43,7 +40,6 @@ public final class HomelanderZombie {
             0x0D08A3,
             0xD43B3B
     );
-
     public static final DeferredHolder<EntityType<?>, EntityType<CustomZombieEntity>> ENTITY =
             ModZombies.ENTITIES.register(
                     DEFINITION.id(),
@@ -52,7 +48,6 @@ public final class HomelanderZombie {
                             .sized(0.6F, 1.95F)
                             .build(DEFINITION.id())
             );
-
     public static final DeferredHolder<Item, DeferredSpawnEggItem> SPAWN_EGG =
             ModZombies.ITEMS.register(
                     DEFINITION.id() + "_spawn_egg",
@@ -63,11 +58,13 @@ public final class HomelanderZombie {
                             new Item.Properties()
                     )
             );
-
     public static final ZombieEntry ENTRY = new ZombieEntry(
             DEFINITION.id(),
             ENTITY,
             SPAWN_EGG,
             DEFINITION
     );
+
+    private HomelanderZombie() {
+    }
 }

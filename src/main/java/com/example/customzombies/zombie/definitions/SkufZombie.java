@@ -13,30 +13,32 @@ import net.neoforged.neoforge.registries.DeferredHolder;
 
 import java.util.List;
 
-public final class MaxZombie {
+public final class SkufZombie {
     private static final ZombieDefinition DEFINITION = new ZombieDefinition(
-            "max_zombie",
+            "skuf_zombie",
             new ZombieStats()
-                    .with(Attributes.MAX_HEALTH, 500.0D)
-                    .with(Attributes.ATTACK_DAMAGE, 4.0D)
-                    .with(Attributes.MOVEMENT_SPEED, 0.3D)
-                    .with(Attributes.SCALE, 3.0D),
+                    .with(Attributes.MAX_HEALTH, 40.0D)
+                    .with(Attributes.MOVEMENT_SPEED, 0.34D)
+                    .with(Attributes.SCALE, 1.1D)
+                    .with(Attributes.ATTACK_DAMAGE, 2D),
             false,
-            20,
+            5,
             1.5D,
-            10,
+            2,
             List.of(
-                    LootDrop.flesh(1, 5, 15),
-                    LootDrop.ammo("tacz:9mm", 6, 12, 10),
-                    LootDrop.ammo("tacz:45acp", 5, 10, 10),
-                    LootDrop.ammo("tacz:556x45", 5, 10, 10),
-                    LootDrop.ammo("tacz:308", 2, 4, 10),
-                    LootDrop.ammo("tacz:12g", 4, 8, 10),
-                    LootDrop.ammo("tacz:rpg_rocket", 1, 2, 10)
+                    LootDrop.ammo("tacz:9mm", 2, 4, 100),
+                    LootDrop.ammo("tacz:45acp", 2, 3, 100),
+                    LootDrop.ammo("tacz:556x45", 2, 4, 100),
+                    LootDrop.ammo("tacz:308", 2, 4, 100),
+                    LootDrop.ammo("tacz:12g", 1, 2, 10),
+                    LootDrop.ammo("tacz:rpg_rocket", 1, 1, 1)
             ),
-            ResourceLocation.fromNamespaceAndPath(Customzombies.MODID, "textures/entity/max_zombie.png"),
-            0xff00f7,
-            0xbaa880
+            ResourceLocation.fromNamespaceAndPath(
+                    Customzombies.MODID,
+                    "textures/entity/skuf_zombie.png"
+            ),
+            0xd1ba73,
+            0x360e11
     );
     public static final DeferredHolder<EntityType<?>, EntityType<CustomZombieEntity>> ENTITY =
             ModZombies.ENTITIES.register(
@@ -63,6 +65,6 @@ public final class MaxZombie {
             DEFINITION
     );
 
-    private MaxZombie() {
+    private SkufZombie() {
     }
 }

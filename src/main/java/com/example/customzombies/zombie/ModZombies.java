@@ -1,10 +1,7 @@
 package com.example.customzombies.zombie;
 
 import com.example.customzombies.Customzombies;
-import com.example.customzombies.zombie.definitions.AlexZombie;
-import com.example.customzombies.zombie.definitions.HomelanderZombie;
-import com.example.customzombies.zombie.definitions.MaxZombie;
-import com.example.customzombies.zombie.definitions.RealZombie;
+import com.example.customzombies.zombie.definitions.*;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.item.Item;
@@ -13,22 +10,21 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 import java.util.List;
 
 public final class ModZombies {
-    private ModZombies() {
-    }
-
     public static final DeferredRegister<EntityType<?>> ENTITIES =
             DeferredRegister.create(Registries.ENTITY_TYPE, Customzombies.MODID);
-
     public static final DeferredRegister<Item> ITEMS =
             DeferredRegister.create(Registries.ITEM, Customzombies.MODID);
-
     // All zombie classes here
     private static final List<ZombieEntry> ALL = List.of(
             RealZombie.ENTRY,
             HomelanderZombie.ENTRY,
             AlexZombie.ENTRY,
-            MaxZombie.ENTRY
+            MaxZombie.ENTRY,
+            SkufZombie.ENTRY
     );
+
+    private ModZombies() {
+    }
 
     public static List<ZombieEntry> all() {
         return ALL;
